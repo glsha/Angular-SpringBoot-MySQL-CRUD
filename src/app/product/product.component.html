@@ -1,0 +1,49 @@
+<div class="container">
+    <h2> Product List </h2>
+    {{info}}
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th> Name </th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let product of products" >
+                <td> {{ product.id }} </td>
+                <td> {{ product.name }} </td>
+                <td>
+                    <input type="text" name="name" [(ngModel)] = "product.name"/>
+                     <button (click) = "updateProduct(product.id)" class = "btn btn-dark">Redirect</button>
+                    <button (click) = "updateNew(product)" class = "btn btn-info">Update</button>
+                    <button (click) = "deleteProduct(product)" class = "btn btn-danger" style="margin-left: 10px">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-5 offset-md-3">     
+    <h3>Create Product</h3>
+
+    <form (ngSubmit) = "onSubmit()">
+    <div class = "form-group">
+        <label> Name</label>
+        <input type="text" class="form-control" id="productName"
+            [(ngModel)] = "product.name" name="productName">
+
+        <button class = "btn btn-success" type ="submit">submit<button>
+        
+
+    
+
+
+
+
+
+    
+
+
+
+    
