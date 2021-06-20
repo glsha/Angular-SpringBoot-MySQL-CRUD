@@ -34,9 +34,18 @@ export class ProductComponent implements OnInit {
 
   //Create Product
   onSubmit(){
-    console.log(this.product);
+    if(this.product.name == ""){
+      this.toastr.warning( 'Product name cannot be empty' ); 
+    }
+    else if(this.product.name == "fonepay"){
+      this.toastr.error( 'Product name cannot be FONEPAY' ); 
+    }
+    else{
+      console.log(this.product);
     this.saveProduct();
-    this.toastr.warning( 'Product created!'); 
+    this.toastr.success( 'Product created!' ); 
+    }
+    
   }
   saveProduct(){
     this.productService.createProduct(this.product).subscribe(data =>{
